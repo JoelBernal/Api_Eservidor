@@ -9,10 +9,9 @@ namespace api_librerias_paco.Models
 
         public decimal? saldo { get; set; }
 
-        private int? Id { get; set; }
+        public int? Id { get; set; }
 
         private DateTime? fechaCreacion { get; set; }
-       
-       
+
     }
 }
