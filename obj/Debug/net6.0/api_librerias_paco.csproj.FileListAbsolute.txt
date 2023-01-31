@@ -25,3 +25,30 @@ D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\refint\api_librerias_paco.dll
 D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\api_librerias_paco.pdb
 D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\api_librerias_paco.genruntimeconfig.cache
 D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\ref\api_librerias_paco.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\appsettings.Development.json
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\appsettings.json
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\api_librerias_paco.exe
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\api_librerias_paco.deps.json
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\api_librerias_paco.runtimeconfig.json
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\api_librerias_paco.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\api_librerias_paco.pdb
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.csproj.AssemblyReference.cache
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.GeneratedMSBuildEditorConfig.editorconfig
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.AssemblyInfoInputs.cache
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.AssemblyInfo.cs
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.csproj.CoreCompileInputs.cache
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.MvcApplicationPartsAssemblyInfo.cs
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.MvcApplicationPartsAssemblyInfo.cache
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\staticwebassets.build.json
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\staticwebassets.development.json
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\scopedcss\bundle\api_librerias_paco.styles.css
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.csproj.CopyComplete
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\refint\api_librerias_paco.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.pdb
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.genruntimeconfig.cache
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\ref\api_librerias_paco.dll

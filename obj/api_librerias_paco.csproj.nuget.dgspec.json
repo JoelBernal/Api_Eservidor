@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DAW-Endo\\api_librerias_paco\\api_librerias_paco.csproj": {}
+    "D:\\Endo - No borrar carpeta porfa\\Api_Eservidor-develop\\api_librerias_paco.csproj": {}
   },
   "projects": {
-    "D:\\DAW-Endo\\api_librerias_paco\\api_librerias_paco.csproj": {
+    "D:\\Endo - No borrar carpeta porfa\\Api_Eservidor-develop\\api_librerias_paco.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DAW-Endo\\api_librerias_paco\\api_librerias_paco.csproj",
+        "projectUniqueName": "D:\\Endo - No borrar carpeta porfa\\Api_Eservidor-develop\\api_librerias_paco.csproj",
         "projectName": "api_librerias_paco",
-        "projectPath": "D:\\DAW-Endo\\api_librerias_paco\\api_librerias_paco.csproj",
+        "projectPath": "D:\\Endo - No borrar carpeta porfa\\Api_Eservidor-develop\\api_librerias_paco.csproj",
         "packagesPath": "C:\\Users\\A8-PC100\\.nuget\\packages\\",
-        "outputPath": "D:\\DAW-Endo\\api_librerias_paco\\obj\\",
+        "outputPath": "D:\\Endo - No borrar carpeta porfa\\Api_Eservidor-develop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\A8-PC100\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,18 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"

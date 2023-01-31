@@ -28,6 +28,8 @@ namespace api_librerias_paco.Services
 
         public static Libros? Get(int id) => Libros.FirstOrDefault(p => p.Id == id);
 
+        public static Libros? Get(string Titulo) => Libros.FirstOrDefault(p => p.Titulo == Titulo);
+
         public static void Add(Libros libros)
         {
             libros.Id = nextId++;

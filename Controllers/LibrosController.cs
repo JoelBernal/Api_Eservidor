@@ -29,6 +29,18 @@ namespace api_librerias_paco.Controllers
             return libro1;
         }
 
+        // GET by nombre action
+        [HttpGet("Get-por-titulo")]
+        public ActionResult<Libros> Get(string Titulo)
+        {
+            var libro1 = LibrosService.Get(Titulo);
+
+            if (libro1 == null)
+                return NotFound();
+
+            return libro1;
+        }
+
         // POST action
         [HttpPost]
         public IActionResult Create(Libros libros)
