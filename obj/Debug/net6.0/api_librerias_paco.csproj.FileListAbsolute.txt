@@ -1,0 +1,109 @@
+D:\DAW-Endo\api_librerias_paco\bin\Debug\net6.0\appsettings.Development.json
+D:\DAW-Endo\api_librerias_paco\bin\Debug\net6.0\appsettings.json
+D:\DAW-Endo\api_librerias_paco\bin\Debug\net6.0\api_librerias_paco.exe
+D:\DAW-Endo\api_librerias_paco\bin\Debug\net6.0\api_librerias_paco.deps.json
+D:\DAW-Endo\api_librerias_paco\bin\Debug\net6.0\api_librerias_paco.runtimeconfig.json
+D:\DAW-Endo\api_librerias_paco\bin\Debug\net6.0\api_librerias_paco.dll
+D:\DAW-Endo\api_librerias_paco\bin\Debug\net6.0\api_librerias_paco.pdb
+D:\DAW-Endo\api_librerias_paco\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\DAW-Endo\api_librerias_paco\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\DAW-Endo\api_librerias_paco\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\DAW-Endo\api_librerias_paco\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\api_librerias_paco.csproj.AssemblyReference.cache
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\api_librerias_paco.GeneratedMSBuildEditorConfig.editorconfig
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\api_librerias_paco.AssemblyInfoInputs.cache
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\api_librerias_paco.AssemblyInfo.cs
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\api_librerias_paco.csproj.CoreCompileInputs.cache
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\api_librerias_paco.MvcApplicationPartsAssemblyInfo.cs
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\api_librerias_paco.MvcApplicationPartsAssemblyInfo.cache
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\staticwebassets.build.json
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\staticwebassets.development.json
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\scopedcss\bundle\api_librerias_paco.styles.css
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\api_librerias_paco.csproj.CopyComplete
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\api_librerias_paco.dll
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\refint\api_librerias_paco.dll
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\api_librerias_paco.pdb
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\api_librerias_paco.genruntimeconfig.cache
+D:\DAW-Endo\api_librerias_paco\obj\Debug\net6.0\ref\api_librerias_paco.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\appsettings.Development.json
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\appsettings.json
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\api_librerias_paco.exe
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\api_librerias_paco.deps.json
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\api_librerias_paco.runtimeconfig.json
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\api_librerias_paco.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\api_librerias_paco.pdb
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.csproj.AssemblyReference.cache
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.GeneratedMSBuildEditorConfig.editorconfig
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.AssemblyInfoInputs.cache
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.AssemblyInfo.cs
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.csproj.CoreCompileInputs.cache
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.MvcApplicationPartsAssemblyInfo.cs
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.MvcApplicationPartsAssemblyInfo.cache
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\staticwebassets.build.json
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\staticwebassets.development.json
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\scopedcss\bundle\api_librerias_paco.styles.css
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.csproj.CopyComplete
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\refint\api_librerias_paco.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.pdb
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\api_librerias_paco.genruntimeconfig.cache
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\obj\Debug\net6.0\ref\api_librerias_paco.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Azure.Core.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Azure.Identity.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Humanizer.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\Mono.TextTemplating.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\System.CodeDom.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\System.Memory.Data.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\System.Runtime.Caching.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\System.Text.Json.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+D:\Endo - No borrar carpeta porfa\Api_Eservidor-develop\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
