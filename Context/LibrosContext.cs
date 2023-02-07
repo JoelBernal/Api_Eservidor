@@ -10,7 +10,9 @@ public class LibrosContext : DbContext
     {
 }
     DbSet<Libros> Libro {get;set;}= null!;
+    DbSet<Clientes> Clientes {get;set;}= null!;
 
+    DbSet<Tiendas> Tiendas {get;set;}= null!;
 
 }
 

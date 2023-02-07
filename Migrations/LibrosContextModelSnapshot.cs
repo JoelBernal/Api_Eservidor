@@ -22,6 +22,31 @@ namespace apilibreriaspaco.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("api_librerias_paco.Models.Clientes", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+
+                    b.Property<string>("Contraseña")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Correo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NombreUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("saldo")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clientes");
+                });
+
             modelBuilder.Entity("api_librerias_paco.Models.Libros", b =>
                 {
                     b.Property<int?>("Id")
@@ -51,6 +76,34 @@ namespace apilibreriaspaco.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Libro");
+                });
+
+            modelBuilder.Entity("api_librerias_paco.Models.Tiendas", b =>
+                {
+                    b.Property<int?>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("id"));
+
+                    b.Property<string>("calle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("codigopostal")
+                        .HasColumnType("int");
+
+                    b.Property<string>("comunidad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("localidad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("trabajadores")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Tiendas");
                 });
 #pragma warning restore 612, 618
         }
