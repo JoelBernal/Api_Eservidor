@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<LibrosContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("LibrosContext")));
+builder.Services.AddDbContext<LibreriaContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LibreriaContext")));
 
 
 
@@ -30,4 +30,4 @@ app.MapControllers();
 
 app.Run();
 
-//j
+//
