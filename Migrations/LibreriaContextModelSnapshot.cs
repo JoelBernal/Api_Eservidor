@@ -10,8 +10,8 @@ using api_librerias_paco.Models;
 
 namespace apilibreriaspaco.Migrations
 {
-    [DbContext(typeof(LibrosContext))]
-    partial class LibrosContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(LibreriaContext))]
+    partial class LibreriaContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

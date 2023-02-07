@@ -11,9 +11,9 @@ using api_librerias_paco.Models;
 
 namespace apilibreriaspaco.Migrations
 {
-    [DbContext(typeof(LibrosContext))]
-    [Migration("20230207180231_Migration123")]
-    partial class Migration123
+    [DbContext(typeof(LibreriaContext))]
+    [Migration("20230207190016_Migration1")]
+    partial class Migration1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

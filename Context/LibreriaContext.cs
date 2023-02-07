@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 namespace api_librerias_paco.Models
 {
 
-public class LibrosContext : DbContext
+public class LibreriaContext : DbContext
 {
-    public LibrosContext(DbContextOptions<LibrosContext>options)
+    public LibreriaContext(DbContextOptions<LibreriaContext>options)
     : base(options)
     {
 }
