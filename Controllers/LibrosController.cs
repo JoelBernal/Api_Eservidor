@@ -1,6 +1,7 @@
 using api_librerias_paco.Models;
 using api_librerias_paco.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace api_librerias_paco.Controllers
 {
@@ -8,8 +9,10 @@ namespace api_librerias_paco.Controllers
     [Route("[controller]")]
     public class LibrosController : ControllerBase
     {
-        public LibrosController()
+        private readonly LibreriaContext _dbContext;
+        public LibrosController(LibreriaContext dbContext)
         {
+            _dbContext = dbContext;
         }
 
         // GET all action
@@ -78,6 +81,46 @@ namespace api_librerias_paco.Controllers
 
             return NoContent();
         }
+
+        // GET: api/Libros
+        [HttpGet("GetDatosBBDD")]
+        public async Task<ActionResult<IEnumerable<Libros>>> GetLibros()
+        {
+            if (_dbContext.Libro == null)
+            {
+                return NotFound();
+            }
+            return await _dbContext.Libro.ToListAsync();
+        }
+
+
+        // GET libros de la base por id
+        [HttpGet("GETidBBDD/{id}")]
+        public async Task<ActionResult<Libros>> GetLibros(int id)
+        {
+            if (_dbContext.Libro == null)
+            {
+                return NotFound();
+            }
+            var libro = await _dbContext.Libro.FindAsync(id);
+
+            if (libro == null)
+            {
+                return NotFound();
+            }
+            return libro;
+
+        }
+
+        [HttpPost("POSTBBDD")]
+
+        public async Task<ActionResult<Libros>> PostLibros(Libros libros)
+        {
+            _dbContext.Libro.Add(libros);
+            await _dbContext.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetLibros), new { id = libros.Id }, libros);
+        }
+
     }
 }
 

@@ -9,10 +9,9 @@ public class LibreriaContext : DbContext
     : base(options)
     {
 }
-    DbSet<Libros> Libro {get;set;}= null!;
-    DbSet<Clientes> Clientes {get;set;}= null!;
-
-    DbSet<Tiendas> Tiendas {get;set;}= null!;
+    public DbSet<Libros> Libro {get;set;} = null!;
+    public DbSet<Clientes> Clientes {get;set;} = null!;
+    public DbSet<Tiendas> Tiendas {get;set;} = null!;
 
 }
 

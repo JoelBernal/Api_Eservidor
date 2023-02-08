@@ -1,6 +1,7 @@
 using api_librerias_paco.Models;
 using api_librerias_paco.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace api_librerias_paco.Controllers
 {
@@ -8,14 +9,16 @@ namespace api_librerias_paco.Controllers
     [Route("[controller]")]
     public class ClientesController : ControllerBase
     {
-        public ClientesController()
+        private readonly LibreriaContext _dbContext;
+        public ClientesController(LibreriaContext dbContext)
         {
+            _dbContext = dbContext;
         }
 
         // GET all action
-        [HttpGet]
+        [HttpGet("ClientesApiCode")]
         public ActionResult<List<Clientes>> GetAll() =>
-        ClientesService.GetAll();
+       ClientesService.GetAll();
 
         // GET by Id action
         [HttpGet("{id}")]
@@ -31,7 +34,7 @@ namespace api_librerias_paco.Controllers
 
 
 
-// GET by Id action
+        // GET by Id action
         [HttpGet("findByEmail/{correo}")]
         public ActionResult<Clientes> Get(string correo)
         {
@@ -85,5 +88,45 @@ namespace api_librerias_paco.Controllers
 
             return NoContent();
         }
+
+        // GET: api/Clientes
+        [HttpGet("GetDatosBBDD")]
+        public async Task<ActionResult<IEnumerable<Clientes>>> GetClientes()
+        {
+            if (_dbContext.Clientes == null)
+            {
+                return NotFound();
+            }
+            return await _dbContext.Clientes.ToListAsync();
+        }
+
+        // GET clientes de la base por id
+        [HttpGet("GETidBBDD/{id}")]
+        public async Task<ActionResult<Clientes>> GetClientes(int id)
+        {
+            if (_dbContext.Clientes == null)
+            {
+                return NotFound();
+            }
+            var cliente = await _dbContext.Clientes.FindAsync(id);
+
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+            return cliente;
+
+        }
+
+        [HttpPost("POSTBBDD")]
+
+        public async Task<ActionResult<Clientes>> PostClientes(Clientes clientes)
+        {
+            _dbContext.Clientes.Add(clientes);
+            await _dbContext.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetClientes), new { id = clientes.Id }, clientes);
+        }
+
+
     }
 }

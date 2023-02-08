@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<LibreriaContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("LibreriaContext")));
 
+builder.Services.AddTransient<LibreriaContext>();
+
 
 
 builder.Services.AddControllers();

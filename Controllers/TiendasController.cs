@@ -1,6 +1,7 @@
 using api_librerias_paco.Models;
 using api_librerias_paco.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace api_librerias_paco.Controllers
 {
@@ -8,8 +9,10 @@ namespace api_librerias_paco.Controllers
     [Route("[controller]")]
     public class TiendasController : ControllerBase
     {
-        public TiendasController()
+        private readonly LibreriaContext _dbContext;
+        public TiendasController(LibreriaContext dbContext)
         {
+            _dbContext = dbContext;
         }
 
         // GET all action
@@ -66,6 +69,45 @@ namespace api_librerias_paco.Controllers
 
             return NoContent();
         }
+
+        // GET: api/Tiendas
+        [HttpGet("GetDatosBBDD")]
+        public async Task<ActionResult<IEnumerable<Tiendas>>> GetTiendas()
+        {
+            if (_dbContext.Tiendas == null)
+            {
+                return NotFound();
+            }
+            return await _dbContext.Tiendas.ToListAsync();
+        }
+
+        // GET clientes de la base por id
+        [HttpGet("GETidBBDD/{id}")]
+        public async Task<ActionResult<Tiendas>> GetTiendas(int id)
+        {
+            if (_dbContext.Tiendas == null)
+            {
+                return NotFound();
+            }
+            var tienda = await _dbContext.Tiendas.FindAsync(id);
+
+            if (tienda == null)
+            {
+                return NotFound();
+            }
+            return tienda;
+
+        }
+
+        [HttpPost("POSTBBDD")]
+
+        public async Task<ActionResult<Tiendas>> PostTiendas(Tiendas tiendas)
+        {
+            _dbContext.Tiendas.Add(tiendas);
+            await _dbContext.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetTiendas), new { id = tiendas.id }, tiendas);
+        }
+
     }
 }
 
