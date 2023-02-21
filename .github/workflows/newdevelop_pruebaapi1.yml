@@ -7,6 +7,8 @@ on:
   push:
     branches:
       - newdevelop
+      - develop
+      - master
   workflow_dispatch:
 
 jobs:
