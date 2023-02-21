@@ -2,12 +2,10 @@
 
 #nullable disable
 
-namespace apilibreriaspaco.Migrations
+namespace api_librerias_paco.Migrations
 {
-    /// <inheritdoc />
-    public partial class Migration1 : Migration
+    public partial class nombreMigracion : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -62,7 +60,6 @@ namespace apilibreriaspaco.Migrations
                 });
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

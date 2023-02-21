@@ -121,6 +121,50 @@ namespace api_librerias_paco.Controllers
             return CreatedAtAction(nameof(GetLibros), new { id = libros.Id }, libros);
         }
 
+        [HttpPut("PutBBDD")]
+        public async Task<IActionResult> PutClientes([FromBody] Libros libros)
+        {
+            _dbContext.Entry(libros).State = EntityState.Modified;
+
+            try
+            {
+                _dbContext.Libro.Update(libros);
+                await _dbContext.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+
+                throw;
+            }
+            return Ok();
+        }
+
+        private bool LibrosExists(long id)
+        {
+            return (_dbContext.Libro?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+
+
+        [HttpDelete("DeleteBBDD/{id}")]
+
+        public async Task<IActionResult> DeleteLibros(int id)
+        {
+            if (_dbContext.Libro == null)
+            {
+                return NotFound();
+            }
+            var libro = await _dbContext.Libro.FindAsync(id);
+            if (libro == null)
+            {
+                return NotFound();
+            }
+            _dbContext.Libro.Remove(libro);
+            await _dbContext.SaveChangesAsync();
+
+            return NoContent();
+        }
+
     }
 }
 

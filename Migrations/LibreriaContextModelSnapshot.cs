@@ -8,7 +8,7 @@ using api_librerias_paco.Models;
 
 #nullable disable
 
-namespace apilibreriaspaco.Migrations
+namespace api_librerias_paco.Migrations
 {
     [DbContext(typeof(LibreriaContext))]
     partial class LibreriaContextModelSnapshot : ModelSnapshot
@@ -17,10 +17,10 @@ namespace apilibreriaspaco.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.2")
+                .HasAnnotation("ProductVersion", "6.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("api_librerias_paco.Models.Clientes", b =>
                 {
@@ -28,7 +28,7 @@ namespace apilibreriaspaco.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
 
                     b.Property<string>("Contraseña")
                         .HasColumnType("nvarchar(max)");
@@ -53,7 +53,7 @@ namespace apilibreriaspaco.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
 
                     b.Property<string>("Autor")
                         .HasColumnType("nvarchar(max)");
@@ -84,7 +84,7 @@ namespace apilibreriaspaco.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("id"), 1L, 1);
 
                     b.Property<string>("calle")
                         .HasColumnType("nvarchar(max)");
