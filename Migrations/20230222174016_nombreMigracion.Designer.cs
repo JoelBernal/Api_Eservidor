@@ -12,7 +12,7 @@ using api_librerias_paco.Models;
 namespace api_librerias_paco.Migrations
 {
     [DbContext(typeof(LibreriaContext))]
-    [Migration("20230221152535_nombreMigracion")]
+    [Migration("20230222174016_nombreMigracion")]
     partial class nombreMigracion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,6 +47,38 @@ namespace api_librerias_paco.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clientes");
+                });
+
+            modelBuilder.Entity("api_librerias_paco.Models.LibroCliente", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
+
+                    b.Property<int?>("ClientesId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdCliente")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdLibro")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LibrosId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NombreLibro")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientesId");
+
+                    b.HasIndex("LibrosId");
+
+                    b.ToTable("LibrosCliente");
                 });
 
             modelBuilder.Entity("api_librerias_paco.Models.Libros", b =>
@@ -106,6 +138,21 @@ namespace api_librerias_paco.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Tiendas");
+                });
+
+            modelBuilder.Entity("api_librerias_paco.Models.LibroCliente", b =>
+                {
+                    b.HasOne("api_librerias_paco.Models.Clientes", "Clientes")
+                        .WithMany()
+                        .HasForeignKey("ClientesId");
+
+                    b.HasOne("api_librerias_paco.Models.Libros", "Libros")
+                        .WithMany()
+                        .HasForeignKey("LibrosId");
+
+                    b.Navigation("Clientes");
+
+                    b.Navigation("Libros");
                 });
 #pragma warning restore 612, 618
         }

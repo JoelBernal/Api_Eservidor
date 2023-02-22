@@ -13,7 +13,5 @@ namespace api_librerias_paco.Models
 
         private DateTime? fechaCreacion { get; set; }
 
-        
-
     }
 }

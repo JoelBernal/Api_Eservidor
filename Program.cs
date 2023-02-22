@@ -8,6 +8,9 @@ builder.Services.AddDbContext<LibreriaContext>(options =>
 
 builder.Services.AddTransient<LibreriaContext>();
 
+// [Newtonsoft.Json.JsonProperty(PropertyName="properties.token")]
+// public string Token { get; set; }
+
 builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>
  options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );

@@ -58,18 +58,58 @@ namespace api_librerias_paco.Migrations
                 {
                     table.PrimaryKey("PK_Tiendas", x => x.id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "LibrosCliente",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdCliente = table.Column<int>(type: "int", nullable: true),
+                    IdLibro = table.Column<int>(type: "int", nullable: true),
+                    NombreLibro = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClientesId = table.Column<int>(type: "int", nullable: true),
+                    LibrosId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LibrosCliente", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_LibrosCliente_Clientes_ClientesId",
+                        column: x => x.ClientesId,
+                        principalTable: "Clientes",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_LibrosCliente_Libro_LibrosId",
+                        column: x => x.LibrosId,
+                        principalTable: "Libro",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LibrosCliente_ClientesId",
+                table: "LibrosCliente",
+                column: "ClientesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LibrosCliente_LibrosId",
+                table: "LibrosCliente",
+                column: "LibrosId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "LibrosCliente");
+
+            migrationBuilder.DropTable(
+                name: "Tiendas");
+
+            migrationBuilder.DropTable(
                 name: "Clientes");
 
             migrationBuilder.DropTable(
                 name: "Libro");
-
-            migrationBuilder.DropTable(
-                name: "Tiendas");
         }
     }
 }
