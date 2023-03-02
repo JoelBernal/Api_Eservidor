@@ -112,6 +112,8 @@ namespace api_librerias_paco.Controllers
 
         }
 
+ 
+
         [HttpPost("POSTBBDD")]
 
         public async Task<ActionResult<Libros>> PostLibros(Libros libros)
@@ -164,6 +166,18 @@ namespace api_librerias_paco.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("OrdenarPorPrecio-BBDD")]
+        public async Task<ActionResult<IEnumerable<Libros>>> GetLibrosOrderByPrice()
+        {
+            var libros = await _dbContext.Libro
+                .OrderBy(l => l.Precio)
+                .ToListAsync();
+
+            return Ok(libros);
+        }
+
+
 
     }
 }

@@ -1,4 +1,8 @@
 using api_librerias_paco.Models;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace api_librerias_paco.Services
 {
@@ -30,6 +34,7 @@ namespace api_librerias_paco.Services
 
         public static Libros? Get(string Titulo) => Libros.FirstOrDefault(p => p.Titulo == Titulo);
 
+
         public static void Add(Libros libros)
         {
             libros.Id = nextId++;
@@ -53,6 +58,9 @@ namespace api_librerias_paco.Services
 
             Libros[index] = libros;
         }
+
+
+
     }
 
 }

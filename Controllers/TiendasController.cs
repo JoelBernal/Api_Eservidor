@@ -151,6 +151,16 @@ namespace api_librerias_paco.Controllers
             return NoContent();
         }
 
+        [HttpGet("OrdenarPorMasTrabajadores-BBDD")]
+        public async Task<ActionResult<IEnumerable<Tiendas>>> GetTiendasOrderByTrabajadores()
+        {
+            var donOmar = await _dbContext.Tiendas
+                .OrderByDescending(l => l.trabajadores)
+                .ToListAsync();
+
+            return Ok(donOmar);
+        }
+
     }
 }
 

@@ -12,11 +12,11 @@ namespace api_librerias_paco.Controllers
         private readonly LibreriaContext _dbContext;
         private readonly LibroClienteService _libroClienteService;
 
-    public LibroClienteController(LibreriaContext dbContext)
-    {
-        _dbContext = dbContext;
-        _libroClienteService = new LibroClienteService(_dbContext);
-    }
+        public LibroClienteController(LibreriaContext dbContext)
+        {
+            _dbContext = dbContext;
+            _libroClienteService = new LibroClienteService(_dbContext);
+        }
 
         [HttpGet("{idCliente}")]
         public async Task<ActionResult<List<LibroCliente>>> GetLibrosCliente(int idCliente)
@@ -34,8 +34,20 @@ namespace api_librerias_paco.Controllers
         [HttpPost]
         public async Task<ActionResult> AddLibroCliente(LibroCliente libroCliente)
         {
-            await _libroClienteService.AddLibroCliente(libroCliente);
+            bool exists = await _dbContext.LibrosCliente.AnyAsync(lc => lc.IdCliente == libroCliente.IdCliente && lc.IdLibro == libroCliente.IdLibro);
+            bool prueba = await _dbContext.Clientes.AnyAsync(cc => cc.Id == libroCliente.IdCliente);
 
+            if (exists)
+            {
+                return BadRequest("El libro ya está asignado a este cliente.");
+            }
+
+            if (prueba == false){
+
+                return BadRequest("No hay ningun cliente que tenga esta Id, tienes que asignar el libro a una Id que exista");
+            }
+
+            await _libroClienteService.AddLibroCliente(libroCliente);
             return Ok();
         }
 

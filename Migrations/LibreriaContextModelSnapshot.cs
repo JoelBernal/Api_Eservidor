@@ -49,32 +49,19 @@ namespace api_librerias_paco.Migrations
 
             modelBuilder.Entity("api_librerias_paco.Models.LibroCliente", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int?>("IdCliente")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
-
-                    b.Property<int?>("ClientesId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("IdCliente")
-                        .HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("IdCliente"), 1L, 1);
 
                     b.Property<int?>("IdLibro")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("LibrosId")
                         .HasColumnType("int");
 
                     b.Property<string>("NombreLibro")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClientesId");
-
-                    b.HasIndex("LibrosId");
+                    b.HasKey("IdCliente");
 
                     b.ToTable("LibrosCliente");
                 });
@@ -110,6 +97,31 @@ namespace api_librerias_paco.Migrations
                     b.ToTable("Libro");
                 });
 
+            modelBuilder.Entity("api_librerias_paco.Models.LibrosLibrerias", b =>
+                {
+                    b.Property<int?>("IdCliente")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("IdCliente"), 1L, 1);
+
+                    b.Property<string>("Comunidad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("IdLibreria")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdLibro")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Recoger")
+                        .HasColumnType("bit");
+
+                    b.HasKey("IdCliente");
+
+                    b.ToTable("LibroLibrerias");
+                });
+
             modelBuilder.Entity("api_librerias_paco.Models.Tiendas", b =>
                 {
                     b.Property<int?>("id")
@@ -136,21 +148,6 @@ namespace api_librerias_paco.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Tiendas");
-                });
-
-            modelBuilder.Entity("api_librerias_paco.Models.LibroCliente", b =>
-                {
-                    b.HasOne("api_librerias_paco.Models.Clientes", "Clientes")
-                        .WithMany()
-                        .HasForeignKey("ClientesId");
-
-                    b.HasOne("api_librerias_paco.Models.Libros", "Libros")
-                        .WithMany()
-                        .HasForeignKey("LibrosId");
-
-                    b.Navigation("Clientes");
-
-                    b.Navigation("Libros");
                 });
 #pragma warning restore 612, 618
         }

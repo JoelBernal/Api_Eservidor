@@ -17,7 +17,9 @@ namespace api_librerias_paco.Services
         public async Task<List<LibroCliente>> GetLibrosCliente(int idCliente)
         {
             return await _dbContext.LibrosCliente
-                .Include(lc => lc.Libros)
+
+                
+               // .Include(lc => lc.Libros)
                 .Where(lc => lc.IdCliente == idCliente)
                 .ToListAsync();
         }
