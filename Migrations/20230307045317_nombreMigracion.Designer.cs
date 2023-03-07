@@ -12,7 +12,7 @@ using api_librerias_paco.Models;
 namespace api_librerias_paco.Migrations
 {
     [DbContext(typeof(LibreriaContext))]
-    [Migration("20230302040525_nombreMigracion")]
+    [Migration("20230307045317_nombreMigracion")]
     partial class nombreMigracion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,11 +51,14 @@ namespace api_librerias_paco.Migrations
 
             modelBuilder.Entity("api_librerias_paco.Models.LibroCliente", b =>
                 {
-                    b.Property<int?>("IdCliente")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("IdCliente"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
+
+                    b.Property<int?>("IdCliente")
+                        .HasColumnType("int");
 
                     b.Property<int?>("IdLibro")
                         .HasColumnType("int");
@@ -63,7 +66,7 @@ namespace api_librerias_paco.Migrations
                     b.Property<string>("NombreLibro")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("IdCliente");
+                    b.HasKey("Id");
 
                     b.ToTable("LibrosCliente");
                 });
@@ -101,14 +104,17 @@ namespace api_librerias_paco.Migrations
 
             modelBuilder.Entity("api_librerias_paco.Models.LibrosLibrerias", b =>
                 {
-                    b.Property<int?>("IdCliente")
+                    b.Property<int?>("IdGeneric")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("IdCliente"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("IdGeneric"), 1L, 1);
 
                     b.Property<string>("Comunidad")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("IdCliente")
+                        .HasColumnType("int");
 
                     b.Property<int?>("IdLibreria")
                         .HasColumnType("int");
@@ -119,7 +125,7 @@ namespace api_librerias_paco.Migrations
                     b.Property<bool?>("Recoger")
                         .HasColumnType("bit");
 
-                    b.HasKey("IdCliente");
+                    b.HasKey("IdGeneric");
 
                     b.ToTable("LibroLibrerias");
                 });

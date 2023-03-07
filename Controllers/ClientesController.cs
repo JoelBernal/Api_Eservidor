@@ -112,7 +112,7 @@ namespace api_librerias_paco.Controllers
 
             if (cliente == null)
             {
-                return NotFound();
+                return BadRequest("No se ha encontrado ningún cliente con ese Id");
             }
             return cliente;
 

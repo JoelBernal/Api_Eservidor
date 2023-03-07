@@ -28,18 +28,20 @@ namespace api_librerias_paco.Controllers
             return Ok(librosLibrerias);
         }
 
-      //  [HttpGet("{idLibreria}")]
-      //  public async Task<IEnumerable<LibrosLibrerias>> GetLibrosLibreria(int idLibreria)
-       // {
-      //      var YSYA = await _librosLibreriasService.GetLibrosLibrerias(idLibreria);
+        [HttpGet("{IdCliente}")]
+        public async Task<ActionResult<IEnumerable<LibrosLibrerias>>> GetLibrosLibreriaPorCliente(int IdCliente)
+        {
+            var librosLibrerias = await _librosLibreriasService.GetLibrosLibreriaPorCliente(IdCliente);
+            if (librosLibrerias == null)
+            {
+                return NotFound();
+            }
 
-       //     if (YSYA == null)
-       //     {
-         //       return NotFound();
-         //   }
 
-       //     return YSYA;
-      //  }
+            return Ok(librosLibrerias);
+        }
+
+
 
 
         [HttpPost]
@@ -49,15 +51,13 @@ namespace api_librerias_paco.Controllers
             return Ok(libroLibreria);
         }
 
-        [HttpPut("{idCliente}/{idLibro}/{idLibreria}")]
-        public async Task<IActionResult> UpdateLibroLibreria(int idCliente, int idLibro, int idLibreria, [FromBody] LibrosLibrerias libroLibreria)
-        {
-            if (idCliente != libroLibreria.IdCliente || idLibro != libroLibreria.IdLibro || idLibreria != libroLibreria.IdLibreria)
-            {
-                return BadRequest();
-            }
 
-            await _librosLibreriasService.UpdateLibroLibreria(idCliente, idLibro, idLibreria, libroLibreria);
+
+
+        [HttpPut("{idGeneric}")]
+        public async Task<IActionResult> UpdateLibroLibreria(int idGeneric, [FromBody] LibrosLibrerias libroLibreria)
+        {
+            await _librosLibreriasService.UpdateLibroLibreria(idGeneric, libroLibreria);
             return NoContent();
         }
 

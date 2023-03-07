@@ -87,13 +87,13 @@ namespace api_librerias_paco.Controllers
         {
             if (_dbContext.Tiendas == null)
             {
-                return NotFound();
+                return BadRequest("No hay ninguna tienda con ese Id asignado");
             }
             var tienda = await _dbContext.Tiendas.FindAsync(id);
 
             if (tienda == null)
             {
-                return NotFound();
+                return BadRequest("No hay ninguna tienda con ese Id asignado");
             }
             return tienda;
 

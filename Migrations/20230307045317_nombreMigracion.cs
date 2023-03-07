@@ -46,8 +46,9 @@ namespace api_librerias_paco.Migrations
                 name: "LibroLibrerias",
                 columns: table => new
                 {
-                    IdCliente = table.Column<int>(type: "int", nullable: false)
+                    IdGeneric = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    IdCliente = table.Column<int>(type: "int", nullable: true),
                     IdLibro = table.Column<int>(type: "int", nullable: true),
                     IdLibreria = table.Column<int>(type: "int", nullable: true),
                     Comunidad = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -55,21 +56,22 @@ namespace api_librerias_paco.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LibroLibrerias", x => x.IdCliente);
+                    table.PrimaryKey("PK_LibroLibrerias", x => x.IdGeneric);
                 });
 
             migrationBuilder.CreateTable(
                 name: "LibrosCliente",
                 columns: table => new
                 {
-                    IdCliente = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    IdCliente = table.Column<int>(type: "int", nullable: true),
                     IdLibro = table.Column<int>(type: "int", nullable: true),
                     NombreLibro = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LibrosCliente", x => x.IdCliente);
+                    table.PrimaryKey("PK_LibrosCliente", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(

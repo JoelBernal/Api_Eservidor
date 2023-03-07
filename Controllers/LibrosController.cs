@@ -100,13 +100,13 @@ namespace api_librerias_paco.Controllers
         {
             if (_dbContext.Libro == null)
             {
-                return NotFound();
+                return BadRequest("No se ha encontrado ningún libro con ese Id");
             }
             var libro = await _dbContext.Libro.FindAsync(id);
 
             if (libro == null)
             {
-                return NotFound();
+                return BadRequest("No se ha encontrado ningún libro con ese Id");
             }
             return libro;
 

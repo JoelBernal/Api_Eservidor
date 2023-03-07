@@ -18,6 +18,15 @@ namespace api_librerias_paco.Controllers
             _libroClienteService = new LibroClienteService(_dbContext);
         }
 
+        [HttpGet]
+        public async Task<ActionResult<List<LibroCliente>>> GetAllLibros()
+        {
+            var librosCliente = await _libroClienteService.GetAllLibros();
+
+
+            return Ok(librosCliente);
+        }
+
         [HttpGet("{idCliente}")]
         public async Task<ActionResult<List<LibroCliente>>> GetLibrosCliente(int idCliente)
         {
@@ -42,7 +51,8 @@ namespace api_librerias_paco.Controllers
                 return BadRequest("El libro ya está asignado a este cliente.");
             }
 
-            if (prueba == false){
+            if (prueba == false)
+            {
 
                 return BadRequest("No hay ningun cliente que tenga esta Id, tienes que asignar el libro a una Id que exista");
             }
@@ -52,9 +62,9 @@ namespace api_librerias_paco.Controllers
         }
 
         [HttpPut("{idCliente}/{idLibro}")]
-        public async Task<ActionResult> UpdateLibroCliente(int idCliente, int idLibro, string nombreLibro)
+        public async Task<ActionResult> UpdateLibroCliente(int Id, [FromBody] LibroCliente libroCliente)
         {
-            await _libroClienteService.UpdateLibroCliente(idCliente, idLibro, nombreLibro);
+            await _libroClienteService.UpdateLibroCliente(Id, libroCliente);
 
             return Ok();
         }

@@ -14,12 +14,22 @@ namespace api_librerias_paco.Services
             _dbContext = dbContext;
         }
 
+        public async Task<List<LibroCliente>> GetAllLibros()
+        {
+            return await _dbContext.LibrosCliente
+
+
+
+
+                .ToListAsync();
+        }
+
         public async Task<List<LibroCliente>> GetLibrosCliente(int idCliente)
         {
             return await _dbContext.LibrosCliente
 
-                
-               // .Include(lc => lc.Libros)
+
+                // .Include(lc => lc.Libros)
                 .Where(lc => lc.IdCliente == idCliente)
                 .ToListAsync();
         }
@@ -30,16 +40,22 @@ namespace api_librerias_paco.Services
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task UpdateLibroCliente(int idCliente, int idLibro, string nombreLibro)
+        public async Task UpdateLibroCliente(int Id, LibroCliente libroCliente)
         {
-            var libroCliente = await _dbContext.LibrosCliente
-                .SingleOrDefaultAsync(lc => lc.IdCliente == idCliente && lc.IdLibro == idLibro);
+            var libroClienteToUpdate = await _dbContext.LibrosCliente.FindAsync(Id);
 
-            if (libroCliente != null)
+            if (libroClienteToUpdate == null)
             {
-                libroCliente.NombreLibro = nombreLibro;
-                await _dbContext.SaveChangesAsync();
+                throw new ArgumentException("El id proporcionado no corresponde a ningún registro en la tabla LibrosLibrerias.");
             }
+
+            
+            libroClienteToUpdate.IdCliente = libroCliente.IdCliente;
+            libroClienteToUpdate.IdLibro = libroCliente.IdLibro;
+            libroClienteToUpdate.NombreLibro = libroCliente.NombreLibro;
+            
+
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task DeleteLibroCliente(int idCliente, int idLibro)
