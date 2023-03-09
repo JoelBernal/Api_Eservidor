@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using api_librerias_paco.Models;
+using api_librerias_paco.Context;
 
 #nullable disable
 
@@ -24,11 +24,11 @@ namespace api_librerias_paco.Migrations
 
             modelBuilder.Entity("api_librerias_paco.Models.Clientes", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Contraseña")
                         .HasColumnType("nvarchar(max)");
@@ -39,43 +39,26 @@ namespace api_librerias_paco.Migrations
                     b.Property<string>("NombreUser")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("libroId")
+                        .HasColumnType("int");
+
                     b.Property<decimal?>("saldo")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("libroId");
+
                     b.ToTable("Clientes");
-                });
-
-            modelBuilder.Entity("api_librerias_paco.Models.LibroCliente", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
-
-                    b.Property<int?>("IdCliente")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("IdLibro")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NombreLibro")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("LibrosCliente");
                 });
 
             modelBuilder.Entity("api_librerias_paco.Models.Libros", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Autor")
                         .HasColumnType("nvarchar(max)");
@@ -100,41 +83,13 @@ namespace api_librerias_paco.Migrations
                     b.ToTable("Libro");
                 });
 
-            modelBuilder.Entity("api_librerias_paco.Models.LibrosLibrerias", b =>
-                {
-                    b.Property<int?>("IdGeneric")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("IdGeneric"), 1L, 1);
-
-                    b.Property<string>("Comunidad")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("IdCliente")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("IdLibreria")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("IdLibro")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("Recoger")
-                        .HasColumnType("bit");
-
-                    b.HasKey("IdGeneric");
-
-                    b.ToTable("LibroLibrerias");
-                });
-
             modelBuilder.Entity("api_librerias_paco.Models.Tiendas", b =>
                 {
-                    b.Property<int?>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("calle")
                         .HasColumnType("nvarchar(max)");
@@ -145,15 +100,49 @@ namespace api_librerias_paco.Migrations
                     b.Property<string>("comunidad")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("libroId")
+                        .HasColumnType("int");
+
                     b.Property<string>("localidad")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("trabajadores")
                         .HasColumnType("int");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
+
+                    b.HasIndex("libroId");
 
                     b.ToTable("Tiendas");
+                });
+
+            modelBuilder.Entity("api_librerias_paco.Models.Clientes", b =>
+                {
+                    b.HasOne("api_librerias_paco.Models.Libros", "Libros")
+                        .WithMany("Clientes")
+                        .HasForeignKey("libroId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Libros");
+                });
+
+            modelBuilder.Entity("api_librerias_paco.Models.Tiendas", b =>
+                {
+                    b.HasOne("api_librerias_paco.Models.Libros", "Libros")
+                        .WithMany("Tiendas")
+                        .HasForeignKey("libroId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Libros");
+                });
+
+            modelBuilder.Entity("api_librerias_paco.Models.Libros", b =>
+                {
+                    b.Navigation("Clientes");
+
+                    b.Navigation("Tiendas");
                 });
 #pragma warning restore 612, 618
         }

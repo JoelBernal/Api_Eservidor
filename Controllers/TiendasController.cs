@@ -1,5 +1,7 @@
 using api_librerias_paco.Models;
 using api_librerias_paco.Services;
+using api_librerias_paco.Context;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,14 +39,14 @@ namespace api_librerias_paco.Controllers
         public IActionResult Create(Tiendas tiendas)
         {
             TiendasService.Add(tiendas);
-            return CreatedAtAction(nameof(Get), new { id = tiendas.id }, tiendas);
+            return CreatedAtAction(nameof(Get), new { id = tiendas.Id }, tiendas);
         }
 
         // PUT action
         [HttpPut("{id}")]
         public IActionResult Update(int id, Tiendas tiendas)
         {
-            if (id != tiendas.id)
+            if (id != tiendas.Id)
                 return BadRequest();
 
             var existingTienda = TiendasService.Get(id);
@@ -105,7 +107,7 @@ namespace api_librerias_paco.Controllers
         {
             _dbContext.Tiendas.Add(tiendas);
             await _dbContext.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetTiendas), new { id = tiendas.id }, tiendas);
+            return CreatedAtAction(nameof(GetTiendas), new { id = tiendas.Id }, tiendas);
         }
 
         [HttpPut("PutBBDD")]
@@ -128,7 +130,7 @@ namespace api_librerias_paco.Controllers
 
         private bool TiendasExists(long id)
         {
-            return (_dbContext.Tiendas?.Any(e => e.id == id)).GetValueOrDefault();
+            return (_dbContext.Tiendas?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
 
