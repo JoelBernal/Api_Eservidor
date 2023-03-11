@@ -12,7 +12,7 @@ using api_librerias_paco.Context;
 namespace api_librerias_paco.Migrations
 {
     [DbContext(typeof(LibreriaContext))]
-    [Migration("20230309190728_nombreMigracion")]
+    [Migration("20230309210756_nombreMigracion")]
     partial class nombreMigracion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

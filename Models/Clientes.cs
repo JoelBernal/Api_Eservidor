@@ -6,6 +6,8 @@ namespace api_librerias_paco.Models
     {       
        public int Id { get; set; }
 
+       
+
         public string? Correo { get; set; }
         public string? Contraseña { get; set; }
         public string? NombreUser { get; set; }

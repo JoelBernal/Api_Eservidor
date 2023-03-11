@@ -5,6 +5,8 @@ namespace api_librerias_paco.Models
     {
         public int Id { get; set; }
 
+        
+
         public string? comunidad { get; set; }
         public string? localidad { get; set; }
         public string? calle { get; set; }
