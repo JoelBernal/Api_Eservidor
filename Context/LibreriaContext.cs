@@ -14,6 +14,11 @@ namespace api_librerias_paco.Context
         public DbSet<Clientes> Clientes { get; set; } = null!;
         public DbSet<Tiendas> Tiendas { get; set; } = null!;
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=tcp:apilibreriaspaco.database.windows.net,1433;Initial Catalog=LibreriaBBDD;Persist Security Info=False;User ID=SuperAdmin;Password=Mandangon123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 { 
