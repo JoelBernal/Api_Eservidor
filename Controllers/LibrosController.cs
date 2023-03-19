@@ -86,7 +86,7 @@ namespace api_librerias_paco.Controllers
 
         // GET: api/Libros
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Libros>>> GetLibros([FromQuery] string? orderBy = "", string? titulo = "")
+        public async Task<ActionResult<IEnumerable<Libros>>> GetLibros([FromQuery] string? orderBy = "")
         {
             IQueryable<Libros> librosQuery = _dbContext.Libro;
 
