@@ -4,9 +4,7 @@ namespace api_librerias_paco.Models
     public class Clientes
 
     {       
-       public int Id { get; set; }
-
-       
+        public int Id { get; set; }
 
         public string? Correo { get; set; }
         public string? Contraseña { get; set; }
@@ -16,9 +14,9 @@ namespace api_librerias_paco.Models
 
         private DateTime? fechaCreacion { get; set; }
 
-        public  int libroId {get;set;}
-
-        public virtual Libros Libros { get; set; }
+       
+        public virtual ICollection<LibrosClientes> LibrosClientes { get; set; } 
+        
 
     }
 }

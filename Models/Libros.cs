@@ -20,7 +20,7 @@ namespace api_librerias_paco.Models
         
         public virtual ICollection<Tiendas> Tiendas { get; set; }
 
-        public virtual ICollection<Clientes> Clientes { get; set; }
+        public virtual ICollection<LibrosClientes> LibrosClientes { get; set; } 
 
     }
 }

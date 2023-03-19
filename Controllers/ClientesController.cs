@@ -17,82 +17,82 @@ namespace api_librerias_paco.Controllers
             _dbContext = dbContext;
         }
 
-        // GET all action
-        [HttpGet("ClientesApiCode")]
-        public ActionResult<List<Clientes>> GetAll() =>
-       ClientesService.GetAll();
+    //     // GET all action
+    //     [HttpGet("ClientesApiCode")]
+    //     public ActionResult<List<Clientes>> GetAll() =>
+    //    ClientesService.GetAll();
 
-        // GET by Id action
-        [HttpGet("{id}")]
-        public ActionResult<Clientes> Get(int id)
-        {
-            var cl1 = ClientesService.Get(id);
+    //     // GET by Id action
+    //     [HttpGet("{id}")]
+    //     public ActionResult<Clientes> Get(int id)
+    //     {
+    //         var cl1 = ClientesService.Get(id);
 
-            if (cl1 == null)
-                return NotFound();
+    //         if (cl1 == null)
+    //             return NotFound();
 
-            return cl1;
-        }
-
-
-
-        // GET by Id action
-        [HttpGet("findByEmail/{correo}")]
-        public ActionResult<Clientes> Get(string correo)
-        {
-            var cl2 = ClientesService.Get(correo);
-
-            if (cl2 == null)
-                return NotFound();
-
-            return cl2;
-        }
+    //         return cl1;
+    //     }
 
 
+
+    //     // GET by Id action
+    //     [HttpGet("findByEmail/{correo}")]
+    //     public ActionResult<Clientes> Get(string correo)
+    //     {
+    //         var cl2 = ClientesService.Get(correo);
+
+    //         if (cl2 == null)
+    //             return NotFound();
+
+    //         return cl2;
+    //     }
 
 
 
 
-        // POST action
-        [HttpPost]
-        public IActionResult Create(Clientes Clientes)
-        {
-            ClientesService.Add(Clientes);
-            return CreatedAtAction(nameof(Get), new { id = Clientes.Id }, Clientes);
-        }
 
-        // PUT action
-        [HttpPut("{id}")]
-        public IActionResult Update(int id, Clientes Clientes)
-        {
-            if (id != Clientes.Id)
-                return BadRequest();
 
-            var existingCl = ClientesService.Get(id);
-            if (existingCl is null)
-                return NotFound();
+    //     // POST action
+    //     [HttpPost]
+    //     public IActionResult Create(Clientes Clientes)
+    //     {
+    //         ClientesService.Add(Clientes);
+    //         return CreatedAtAction(nameof(Get), new { id = Clientes.Id }, Clientes);
+    //     }
 
-            ClientesService.Update(Clientes);
+    //     // PUT action
+    //     [HttpPut("{id}")]
+    //     public IActionResult Update(int id, Clientes Clientes)
+    //     {
+    //         if (id != Clientes.Id)
+    //             return BadRequest();
 
-            return NoContent();
-        }
+    //         var existingCl = ClientesService.Get(id);
+    //         if (existingCl is null)
+    //             return NotFound();
 
-        // DELETE action
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            var cl2 = ClientesService.Get(id);
+    //         ClientesService.Update(Clientes);
 
-            if (cl2 is null)
-                return NotFound();
+    //         return NoContent();
+    //     }
 
-            ClientesService.Delete(id);
+    //     // DELETE action
+    //     [HttpDelete("{id}")]
+    //     public IActionResult Delete(int id)
+    //     {
+    //         var cl2 = ClientesService.Get(id);
 
-            return NoContent();
-        }
+    //         if (cl2 is null)
+    //             return NotFound();
+
+    //         ClientesService.Delete(id);
+
+    //         return NoContent();
+    //     }
 
         // GET: api/Clientes
-        [HttpGet("GetDatosBBDD")]
+        [HttpGet("")]
         public async Task<ActionResult<IEnumerable<Clientes>>> GetClientes()
         {
             if (_dbContext.Clientes == null)
@@ -103,7 +103,7 @@ namespace api_librerias_paco.Controllers
         }
 
         // GET clientes de la base por id
-        [HttpGet("GETidBBDD/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Clientes>> GetClientes(int id)
         {
             if (_dbContext.Clientes == null)
@@ -120,7 +120,7 @@ namespace api_librerias_paco.Controllers
 
         }
 
-        [HttpPost("POSTBBDD")]
+        [HttpPost("")]
 
         public async Task<ActionResult<Clientes>> PostClientes(Clientes clientes)
         {
@@ -129,7 +129,7 @@ namespace api_librerias_paco.Controllers
             return CreatedAtAction(nameof(GetClientes), new { id = clientes.Id }, clientes);
         }
 
-        [HttpPut("PutBBDD")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> PutClientes([FromBody] Clientes clientes)
         {
             _dbContext.Entry(clientes).State = EntityState.Modified;
@@ -154,7 +154,7 @@ namespace api_librerias_paco.Controllers
 
 
 
-        [HttpDelete("DeleteBBDD/{id}")]
+        [HttpDelete("{id}")]
 
         public async Task<IActionResult> DeleteClientes(int id)
         {

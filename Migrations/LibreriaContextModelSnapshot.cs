@@ -39,15 +39,10 @@ namespace api_librerias_paco.Migrations
                     b.Property<string>("NombreUser")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("libroId")
-                        .HasColumnType("int");
-
                     b.Property<decimal?>("saldo")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("libroId");
 
                     b.ToTable("Clientes");
                 });
@@ -83,6 +78,38 @@ namespace api_librerias_paco.Migrations
                     b.ToTable("Libro");
                 });
 
+            modelBuilder.Entity("api_librerias_paco.Models.LibrosClientes", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdCliente")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Idlibro")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LibroId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NombreLibro")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClienteId");
+
+                    b.HasIndex("LibroId");
+
+                    b.ToTable("LibrosClientes");
+                });
+
             modelBuilder.Entity("api_librerias_paco.Models.Tiendas", b =>
                 {
                     b.Property<int>("Id")
@@ -116,15 +143,23 @@ namespace api_librerias_paco.Migrations
                     b.ToTable("Tiendas");
                 });
 
-            modelBuilder.Entity("api_librerias_paco.Models.Clientes", b =>
+            modelBuilder.Entity("api_librerias_paco.Models.LibrosClientes", b =>
                 {
-                    b.HasOne("api_librerias_paco.Models.Libros", "Libros")
-                        .WithMany("Clientes")
-                        .HasForeignKey("libroId")
+                    b.HasOne("api_librerias_paco.Models.Clientes", "Cliente")
+                        .WithMany("LibrosClientes")
+                        .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Libros");
+                    b.HasOne("api_librerias_paco.Models.Libros", "Libro")
+                        .WithMany("LibrosClientes")
+                        .HasForeignKey("LibroId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("Libro");
                 });
 
             modelBuilder.Entity("api_librerias_paco.Models.Tiendas", b =>
@@ -132,15 +167,20 @@ namespace api_librerias_paco.Migrations
                     b.HasOne("api_librerias_paco.Models.Libros", "Libros")
                         .WithMany("Tiendas")
                         .HasForeignKey("libroId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Libros");
                 });
 
+            modelBuilder.Entity("api_librerias_paco.Models.Clientes", b =>
+                {
+                    b.Navigation("LibrosClientes");
+                });
+
             modelBuilder.Entity("api_librerias_paco.Models.Libros", b =>
                 {
-                    b.Navigation("Clientes");
+                    b.Navigation("LibrosClientes");
 
                     b.Navigation("Tiendas");
                 });

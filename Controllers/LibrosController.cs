@@ -17,87 +17,103 @@ namespace api_librerias_paco.Controllers
             _dbContext = dbContext;
         }
 
-        // GET all action
-        [HttpGet]
-        public ActionResult<List<Libros>> GetAll() =>
-        LibrosService.GetAll();
+        // // GET all action
+        // [HttpGet]
+        // public ActionResult<List<Libros>> GetAll() =>
+        // LibrosService.GetAll();
 
-        // GET by Id action
-        [HttpGet("{id}")]
-        public ActionResult<Libros> Get(int id)
-        {
-            var libro1 = LibrosService.Get(id);
+        // // GET by Id action
+        // [HttpGet("{id}")]
+        // public ActionResult<Libros> Get(int id)
+        // {
+        //     var libro1 = LibrosService.Get(id);
 
-            if (libro1 == null)
-                return NotFound();
+        //     if (libro1 == null)
+        //         return NotFound();
 
-            return libro1;
-        }
+        //     return libro1;
+        // }
 
-        // GET by nombre action
-        [HttpGet("Get-por-titulo")]
-        public ActionResult<Libros> Get(string Titulo)
-        {
-            var libro1 = LibrosService.Get(Titulo);
+        // // GET by nombre action
+        // [HttpGet("Get-por-titulo")]
+        // public ActionResult<Libros> Get(string Titulo)
+        // {
+        //     var libro1 = LibrosService.Get(Titulo);
 
-            if (libro1 == null)
-                return NotFound();
+        //     if (libro1 == null)
+        //         return NotFound();
 
-            return libro1;
-        }
+        //     return libro1;
+        // }
 
-        // POST action
-        [HttpPost]
-        public IActionResult Create(Libros libros)
-        {
-            LibrosService.Add(libros);
-            return CreatedAtAction(nameof(Get), new { id = libros.Id }, libros);
-        }
+        // // POST action
+        // [HttpPost]
+        // public IActionResult Create(Libros libros)
+        // {
+        //     LibrosService.Add(libros);
+        //     return CreatedAtAction(nameof(Get), new { id = libros.Id }, libros);
+        // }
 
-        // PUT action
-        [HttpPut("{id}")]
-        public IActionResult Update(int id, Libros libros)
-        {
-            if (id != libros.Id)
-                return BadRequest();
+        // // PUT action
+        // [HttpPut("{id}")]
+        // public IActionResult Update(int id, Libros libros)
+        // {
+        //     if (id != libros.Id)
+        //         return BadRequest();
 
-            var existingLibro = LibrosService.Get(id);
-            if (existingLibro is null)
-                return NotFound();
+        //     var existingLibro = LibrosService.Get(id);
+        //     if (existingLibro is null)
+        //         return NotFound();
 
-            LibrosService.Update(libros);
+        //     LibrosService.Update(libros);
 
-            return NoContent();
-        }
+        //     return NoContent();
+        // }
 
-        // DELETE action
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            var libro = LibrosService.Get(id);
+        // // DELETE action
+        // [HttpDelete("{id}")]
+        // public IActionResult Delete(int id)
+        // {
+        //     var libro = LibrosService.Get(id);
 
-            if (libro is null)
-                return NotFound();
+        //     if (libro is null)
+        //         return NotFound();
 
-            LibrosService.Delete(id);
+        //     LibrosService.Delete(id);
 
-            return NoContent();
-        }
+        //     return NoContent();
+        // }
 
         // GET: api/Libros
-        [HttpGet("GetDatosBBDD")]
-        public async Task<ActionResult<IEnumerable<Libros>>> GetLibros()
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Libros>>> GetLibros([FromQuery] string? orderBy = "", string? titulo = "")
         {
-            if (_dbContext.Libro == null)
+            IQueryable<Libros> librosQuery = _dbContext.Libro;
+
+
+            if (orderBy == "PrecioAscendente")
             {
-                return NotFound();
+                librosQuery = librosQuery.OrderBy(l => l.Precio);
             }
-            return await _dbContext.Libro.ToListAsync();
+
+            if (orderBy == "PrecioDescendente")
+            {
+                librosQuery = librosQuery.OrderByDescending(l => l.Precio);
+            }
+
+            if (orderBy == null)
+            {
+                return await _dbContext.Libro.ToListAsync();
+            }
+
+            var libros = await librosQuery.ToListAsync();
+
+            return Ok(libros);
         }
 
 
         // GET libros de la base por id
-        [HttpGet("GETidBBDD/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Libros>> GetLibros(int id)
         {
             if (_dbContext.Libro == null)
@@ -114,9 +130,9 @@ namespace api_librerias_paco.Controllers
 
         }
 
- 
 
-        [HttpPost("POSTBBDD")]
+
+        [HttpPost("")]
 
         public async Task<ActionResult<Libros>> PostLibros(Libros libros)
         {
@@ -125,7 +141,7 @@ namespace api_librerias_paco.Controllers
             return CreatedAtAction(nameof(GetLibros), new { id = libros.Id }, libros);
         }
 
-        [HttpPut("PutBBDD")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> PutClientes([FromBody] Libros libros)
         {
             _dbContext.Entry(libros).State = EntityState.Modified;
@@ -150,7 +166,7 @@ namespace api_librerias_paco.Controllers
 
 
 
-        [HttpDelete("DeleteBBDD/{id}")]
+        [HttpDelete("{id}")]
 
         public async Task<IActionResult> DeleteLibros(int id)
         {
@@ -169,14 +185,19 @@ namespace api_librerias_paco.Controllers
             return NoContent();
         }
 
-        [HttpGet("OrdenarPorPrecio-BBDD")]
-        public async Task<ActionResult<IEnumerable<Libros>>> GetLibrosOrderByPrice()
-        {
-            var libros = await _dbContext.Libro
-                .OrderBy(l => l.Precio)
-                .ToListAsync();
 
-            return Ok(libros);
+        [HttpGet("titulo/{titulo}")]
+        public async Task<ActionResult<Libros>> GetNombreLibros(string titulo)
+        {
+
+            var libro = await _dbContext.Libro.FirstOrDefaultAsync(l => l.Titulo == titulo);
+
+            if (libro == null)
+            {
+                return BadRequest("No se ha encontrado ningún libro con este nombre");
+            }
+
+            return libro;
         }
 
 

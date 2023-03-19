@@ -17,74 +17,89 @@ namespace api_librerias_paco.Controllers
             _dbContext = dbContext;
         }
 
-        // GET all action
-        [HttpGet]
-        public ActionResult<List<Tiendas>> GetAll() =>
-        TiendasService.GetAll();
+        // // GET all action
+        // [HttpGet]
+        // public ActionResult<List<Tiendas>> GetAll() =>
+        // TiendasService.GetAll();
 
-        // GET by Id action
-        [HttpGet("{id}")]
-        public ActionResult<Tiendas> Get(int id)
-        {
-            var tienda1 = TiendasService.Get(id);
+        // // GET by Id action
+        // [HttpGet("{id}")]
+        // public ActionResult<Tiendas> Get(int id)
+        // {
+        //     var tienda1 = TiendasService.Get(id);
 
-            if (tienda1 == null)
-                return NotFound();
+        //     if (tienda1 == null)
+        //         return NotFound();
 
-            return tienda1;
-        }
+        //     return tienda1;
+        // }
 
-        // POST action
-        [HttpPost]
-        public IActionResult Create(Tiendas tiendas)
-        {
-            TiendasService.Add(tiendas);
-            return CreatedAtAction(nameof(Get), new { id = tiendas.Id }, tiendas);
-        }
+        // // POST action
+        // [HttpPost]
+        // public IActionResult Create(Tiendas tiendas)
+        // {
+        //     TiendasService.Add(tiendas);
+        //     return CreatedAtAction(nameof(Get), new { id = tiendas.Id }, tiendas);
+        // }
 
-        // PUT action
-        [HttpPut("{id}")]
-        public IActionResult Update(int id, Tiendas tiendas)
-        {
-            if (id != tiendas.Id)
-                return BadRequest();
+        // // PUT action
+        // [HttpPut("{id}")]
+        // public IActionResult Update(int id, Tiendas tiendas)
+        // {
+        //     if (id != tiendas.Id)
+        //         return BadRequest();
 
-            var existingTienda = TiendasService.Get(id);
-            if (existingTienda is null)
-                return NotFound();
+        //     var existingTienda = TiendasService.Get(id);
+        //     if (existingTienda is null)
+        //         return NotFound();
 
-            TiendasService.Update(tiendas);
+        //     TiendasService.Update(tiendas);
 
-            return NoContent();
-        }
+        //     return NoContent();
+        // }
 
-        // DELETE action
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            var tnd = TiendasService.Get(id);
+        // // DELETE action
+        // [HttpDelete("{id}")]
+        // public IActionResult Delete(int id)
+        // {
+        //     var tnd = TiendasService.Get(id);
 
-            if (tnd is null)
-                return NotFound();
+        //     if (tnd is null)
+        //         return NotFound();
 
-            TiendasService.Delete(id);
+        //     TiendasService.Delete(id);
 
-            return NoContent();
-        }
+        //     return NoContent();
+        // }
 
         // GET: api/Tiendas
-        [HttpGet("GetDatosBBDD")]
-        public async Task<ActionResult<IEnumerable<Tiendas>>> GetTiendas()
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Tiendas>>> GetTiendas([FromQuery] string? orderBy = "")
         {
-            if (_dbContext.Tiendas == null)
+            IQueryable<Tiendas> tiendasQuery = _dbContext.Tiendas;
+
+            if (orderBy == null)
             {
-                return NotFound();
+                return await _dbContext.Tiendas.ToListAsync();
             }
-            return await _dbContext.Tiendas.ToListAsync();
+
+            if (orderBy == "MasTrabajadores")
+            {
+                tiendasQuery = tiendasQuery.OrderByDescending(t => t.trabajadores);
+            }
+
+            if (orderBy == "MenosTrabajadores")
+            {
+                tiendasQuery = tiendasQuery.OrderBy(t => t.trabajadores);
+            }
+
+            var donOmar = await tiendasQuery.ToListAsync();
+
+            return Ok(donOmar);
         }
 
         // GET clientes de la base por id
-        [HttpGet("GETidBBDD/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Tiendas>> GetTiendas(int id)
         {
             if (_dbContext.Tiendas == null)
@@ -101,7 +116,7 @@ namespace api_librerias_paco.Controllers
 
         }
 
-        [HttpPost("POSTBBDD")]
+        [HttpPost("")]
 
         public async Task<ActionResult<Tiendas>> PostTiendas(Tiendas tiendas)
         {
@@ -110,7 +125,7 @@ namespace api_librerias_paco.Controllers
             return CreatedAtAction(nameof(GetTiendas), new { id = tiendas.Id }, tiendas);
         }
 
-        [HttpPut("PutBBDD")]
+        [HttpPut("")]
         public async Task<IActionResult> PutClientes([FromBody] Tiendas tiendas)
         {
             _dbContext.Entry(tiendas).State = EntityState.Modified;
@@ -134,7 +149,7 @@ namespace api_librerias_paco.Controllers
         }
 
 
-        [HttpDelete("DeleteBBDD/{id}")]
+        [HttpDelete("{id}")]
 
         public async Task<IActionResult> DeleteTiendas(int id)
         {
@@ -153,15 +168,6 @@ namespace api_librerias_paco.Controllers
             return NoContent();
         }
 
-        [HttpGet("OrdenarPorMasTrabajadores-BBDD")]
-        public async Task<ActionResult<IEnumerable<Tiendas>>> GetTiendasOrderByTrabajadores()
-        {
-            var donOmar = await _dbContext.Tiendas
-                .OrderByDescending(l => l.trabajadores)
-                .ToListAsync();
-
-            return Ok(donOmar);
-        }
 
     }
 }
